@@ -1,0 +1,143 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111518]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">BookSystem</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">首页</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">书籍列表</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">个人信息</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0a78c2] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">上传书籍</span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaoN3PlDQ7ZdYdWJiGmmm_Sf4XjdZvhzTx97QFm4Hgu48UmefXAnN1IkNYxSgEAy6PtdpLm7dg1QlBSTqL1dYz9sw5WknaE8TvQVO6eJHc7w5JvM1uQpxa3q53v9NZDRMp7NFF3LIOLnIo9VTk6YtBQ3OQJrlNB9D7j7l34R5seMg4YV9Rb1jxTSLJtNpJ2Dk-pjLO8qOzOcDRAZxT-v83RPm787Gyov5FNkHFwAgnllASrxoCxtcpvBT7uUmFVcagC7MbPLBVx99Q");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div
+                  class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-white @[480px]:rounded-lg min-h-[218px]"
+                  style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4Jw1eLjJpLry2EIIxPsIg0047VW02tAz1MEeEK8Geb5JZext0VCSwKmCUr2rtGAavI64lnmlwg9zaqeFFm6qRDZN2BYf0SZDEK77PFzhxX8ijAaPxGEcZEEv5hIrt5mi-V3uxoNJeZ59p6oBiCjwLq1o6IzFTRVqNdJDd7milUwZPybiO7xPAG4KPP1jiKekitJ5wpYTHhn1iW-bHgrkH4WYwWrJgdAmeUH-P6ME3xbhB6QBB1Ykg0gVAc4fO-I2_9WmdcIuQrzY7");'
+                >
+                  <div class="flex p-4"><p class="text-white tracking-light text-[28px] font-bold leading-tight">欢迎来到我们的图书系统</p></div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#111518] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">热门书籍</h2>
+            <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+              <div class="flex items-stretch p-4 gap-3">
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9jje6Y2LecKKagbzhnrHflvI6ltsaxLtQsqxB7dIlfFs5aLbj17XMFPkbVrS1_rSAItebm89Ha4OZX1w8Gb-SVFgymKGhzjsMenAq-23AJtCu6YRGEQvUXUHqCAOLeNX4BgOvRc8lEKYBseVoDMJEUS-lnoZdfh2BDbmEY_npM5CYWiO52xLQblrk30oceluivHjszKgOTAHvSl1pP0249XlMr5XARbaJwNOcrlD_E3rD2jeBw_xLesPdrDs2X2mvFsC-LCBBfvRj");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111518] text-base font-medium leading-normal">一个女人的故事</p>
+                    <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：张丽</p>
+                  </div>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhZZOyFMkQQtxMmUPohqMXFs2s656663uFWMzE4JNrypS-CDmV67JcWhQ5SPBslsyCaI3SiBsXB4r699CqtebAk4Ky23D72QfJuVEnfWhEdV3e4hL36juqKIOZnYoygJf0cS7CEU5xHWq2igkcAa1AJUEHZi46-hg6ZdVJm30QexvBbS7dNPfLuWzMXRdWsrEMlPZxNvAxiF8STD_VECiLm29SqVMVrNDbFPDzMobnv09MC7HcRSmEFViL9p7OrOVUhEIZTwsTnEum");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111518] text-base font-medium leading-normal">太阳下的夏天</p>
+                    <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：王勇</p>
+                  </div>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtD-j2ULsijEX43w20NhU1xHWFeDf4JVOfICGG7D29Si9xQThe5poqi8qfUTdzHP0IlZH-biuAMajvjgxAromIvFUa_igz09kTp88Suq-wclym-4hVOdLOF5F_s4_9K59DWIL7SioPRG6Q2VIAfU8XxJfjgg5saWI1-h5Xj-RvBT-slLWUEp8rLe8EclqVHT3E0mLSuAWH1Y0F4cGiOGW4hEczI5ln5LvKh86txLV433ef89LHQn0uEJMOpyMvvRXNRwDbO5861xxn");'
+                  ></div>
+                  <div>
+                    <p class="text-[#111518] text-base font-medium leading-normal">大海的太阳</p>
+                    <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：李婷</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#111518] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">推荐书籍</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUEeaX_jy7qokWV0LxIifxvG1GnYVkAt8M5_rRa3k3sFHbCzf-TfMaRuNVl0hWCzEL-LRCaEkHXj2lrO6sJMfVA6-yFbxdcroZhLEH0NyOx5l7hcIsf_i1quhVVpzw9Hidvx_yAM0atIXQiEzKHUMH76KmnAPIcLKkmMmf0rYAkl27rWUTPTrks2ZxWnOG1yC2_MOyWzNm6vw9rVN28ibm0e67-QSdz1ihbbqpTWU3B4UjMJ6PWZbc6h-jIhjPdwSVNgOhZU8RRlmD");'
+                ></div>
+                <div>
+                  <p class="text-[#111518] text-base font-medium leading-normal">大城市的故事</p>
+                  <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：张丽</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8xCV7xQFRD6UkYtcDGBN8rkfGcoc_szlsZpIqasDLeeNcYVKpd2V9iqTbIutbj-Apv2xysv_-4HhOZfGl2wtHn0Z8aglr6DJhbOr8ZesP49VsYg1b8AiGF_sVZbaZU_ieIxXR_l6wHuofZdboifp2b2ECsVmK6W2-HQEoAKo8_sScntalF4RPVChu5AlrxO9-1ivy3lk0G6ddCrMp6bRM0jF_XbWJOw_tk6HJpFGhYb16gaCxVYqcr9NQOYxRWjvoT72eLCOCfXRa");'
+                ></div>
+                <div>
+                  <p class="text-[#111518] text-base font-medium leading-normal">山间的故事</p>
+                  <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：王勇</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCQxTZDmUpk7towdGvYoIhnqeOmfFIrphuUHoTCp4fTbAZsh2mA76BEJzfzr8pU28kwtoBi76PUPSV0hEhkrXb_yIVlAeKx02WxkAsHdjp1832Xh2mDMYY7M7ViQmiRH6pIrlMDC9IWquzxFDtxjLn2AZx03_qM4zyP62EF9h49Nscj4hq_yYO-WrlNISWlcoLkgb2_8wIHie7SKoibIfUA3VLlcT8r-KOaIEVl3uwqhqioi89mDBZpmxkf6mZzkAfZt_-wGBkqYWL");'
+                ></div>
+                <div>
+                  <p class="text-[#111518] text-base font-medium leading-normal">海边的故事</p>
+                  <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：李婷</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAY2q7Y2Brwyn-XGMLGIxh_0peJN3TEggBa7Md9Wq-eH-kVvYvosJ2Y3tu_KUFIRg6HVoAip8nT719r6CVQUhDMfwJnT3GuJZcjr_PKQU_C3e7ZwiGhTCp1BjpamRa5_fc98XVRzAD27Smr5n9ilymwD1qTGFmp5OFtinIc_eFBiL4qQdh4nTBLRbzgaTda-STLzyZeHKU0fjEGPT_TvAxWZ4HD9fwdJAYWxfKt9gHCxrq3K2TbmKtObfEdEPI74Qp7axwy-eowzoHQ");'
+                ></div>
+                <div>
+                  <p class="text-[#111518] text-base font-medium leading-normal">大学的故事</p>
+                  <p class="text-[#607a8a] text-sm font-normal leading-normal">创作者：刘强</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

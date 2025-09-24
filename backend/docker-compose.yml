@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=book_scents
+      - SECRET_KEY=your-secret-key-here
+      - JWT_SECRET_KEY=your-jwt-secret-key-here
+    depends_on:
+      - db
+    command: bash -c "sleep 10 && python db_init.py && python generate_test_data.py && python app.py"
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=book_scents
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:

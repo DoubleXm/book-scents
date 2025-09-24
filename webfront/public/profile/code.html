@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111518]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">BookSystem</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">首页</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">书籍列表</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">个人信息</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">上传书籍</a>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCf8l7q1Lzyh6WCAdvY-lbz-UKRzUB61GGqv9MIO4LiHjDhcZ2fuf9E-zf5bBUUAUcb7G0vz7IEK_ym5MJk57pAc-hbA6yLOXklnwtHifX6udkNcanOwUSbKEPxJJuw6GZ2dC9oQUtZvEME5wXE5715yvfzW09C9u0Z0pYagR91_1bJ7abN1PDwNlgJhclc9dKqxc2btTOhXcum2fa2DVVBuVsDZ1RW0vBf7TLf0hcJjlhC1vg33L7-E1XNqkqribpXUGehnrAlaFo1");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight min-w-72">个人信息</p></div>
+            <div class="flex p-4 @container">
+              <div class="flex w-full flex-col gap-4 items-center">
+                <div class="flex gap-4 flex-col items-center">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCR3UKMa_trLr97ezBsITdoAPX-gQ0EkSoM8mpB2TZod2gFfd4_ciB9fTudukr2GuTBFh_PjnMV4yFUPxxWTZz-dwoQkEaWn5jIFyYbKVbtg7D193oBUzmHsZ34s_7VmL_aDZv4joOdEqsCD1yOzqVLzkBqYWxFwCXQdMEpcPcOpVvmcyYZKSxxpftWRi5paEyuY4qzjxoHiV_lXHPguQAJLw6XKx71OIvL050FGlQJV6bAr3RLp4yzIVCTd58fErQIvpFucd-9P-Sx");'
+                  ></div>
+                  <div class="flex flex-col items-center justify-center justify-center">
+                    <p class="text-[#111518] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">张小红</p>
+                    <p class="text-[#607a8a] text-base font-normal leading-normal text-center">用户名: 张小红</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#111518] text-base font-medium leading-normal pb-2">用户名</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f5] focus:border-none h-14 placeholder:text-[#607a8a] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#111518] text-base font-medium leading-normal pb-2">密码</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f5] focus:border-none h-14 placeholder:text-[#607a8a] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#111518] text-base font-medium leading-normal pb-2">手机号码</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f5] focus:border-none h-14 placeholder:text-[#607a8a] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+            <div class="flex px-4 py-3 justify-center">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0a78c2] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">修改信息</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

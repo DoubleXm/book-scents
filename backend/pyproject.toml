@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "book-scents-backend"
+version = "0.1.0"
+description = "Book Scents Backend API"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^3.0.0"
+mysql-connector-python = "^8.0.0"
+python-dotenv = "^1.0.0"
+Flask-Cors = "^4.0.0"
+pyjwt = "^2.8.0"
+Werkzeug = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

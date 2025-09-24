@@ -1,0 +1,14 @@
+:root {
+  --el-color-primary: #0A78C2;
+
+  --el-text-color-primary: #111518;
+  --el-text-color-regular: #607A8A;
+
+  .el-rate {
+    --el-rate-fill-color: #111518;
+  }
+}
+
+.el-progress-bar__inner {
+  background-color: var(--el-text-color-primary);
+}

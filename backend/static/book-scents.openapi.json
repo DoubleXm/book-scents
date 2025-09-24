@@ -1,0 +1,689 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "默认模块",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "用户"
+    },
+    {
+      "name": "书籍"
+    },
+    {
+      "name": "评论"
+    }
+  ],
+  "paths": {
+    "/api/v1/login": {
+      "post": {
+        "summary": "登录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "title": "用户名"
+                  },
+                  "password": {
+                    "type": "string",
+                    "title": "密码"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "title": "JWT 认证"
+                    },
+                    "profile": {
+                      "$ref": "#/components/schemas/%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9E%8B"
+                    }
+                  },
+                  "required": [
+                    "token",
+                    "profile"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/register": {
+      "post": {
+        "summary": "注册",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "title": "用户名"
+                  },
+                  "password": {
+                    "type": "string",
+                    "title": "用户密码"
+                  },
+                  "mobile": {
+                    "type": "string",
+                    "title": "手机号"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "mobile"
+                ]
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "profile": {
+                      "$ref": "#/components/schemas/%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9E%8B"
+                    },
+                    "token": {
+                      "type": "string",
+                      "title": "jwt 认证"
+                    }
+                  },
+                  "required": [
+                    "profile",
+                    "token"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/books": {
+      "get": {
+        "summary": "书籍列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "书籍"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DESC",
+                "ASC"
+              ]
+            }
+          },
+          {
+            "name": "filed",
+            "in": "query",
+            "description": "配合 order 进行排序",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "HOT",
+                "RECOMMEND"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/%E4%B9%A6%E7%B1%8D%E4%BF%A1%E6%81%AF"
+                      }
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "list",
+                    "total"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "上传书籍",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "书籍"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "书籍名",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "author": {
+                    "description": "作者",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "cover": {
+                    "description": "书籍封面",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "书籍描述",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "阅读地址",
+                    "example": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/books/{id}": {
+      "get": {
+        "summary": "书籍详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "书籍"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "title": "书籍id"
+                    },
+                    "author": {
+                      "type": "string",
+                      "title": "作者"
+                    },
+                    "name": {
+                      "type": "string",
+                      "title": "书籍名"
+                    },
+                    "cover": {
+                      "type": "string",
+                      "title": "书籍封面"
+                    },
+                    "description": {
+                      "type": "string",
+                      "title": "书籍描述"
+                    },
+                    "rating": {
+                      "type": "integer",
+                      "description": "1-5 之前数字允许出现.5",
+                      "title": "评分：1-5 之前数字允许出现.5"
+                    },
+                    "statement": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      },
+                      "description": "1 星到 5 星之前的百分比数据",
+                      "title": "根据评分计算出的1-5星之间的百分比数据"
+                    },
+                    "url": {
+                      "type": "string",
+                      "title": "书籍地址"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "cover",
+                    "description",
+                    "rating",
+                    "statement",
+                    "author",
+                    "url"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/books/{id}/read": {
+      "patch": {
+        "summary": "记录阅读次数",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "书籍"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/comments/{id}": {
+      "get": {
+        "summary": "书籍下的评论列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "评论"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "title": "评论id"
+                          },
+                          "content": {
+                            "type": "string",
+                            "title": "评论内容"
+                          },
+                          "rating": {
+                            "type": "integer",
+                            "title": "评论评分"
+                          },
+                          "createdTime": {
+                            "type": "string",
+                            "title": "创建时间"
+                          },
+                          "user": {
+                            "$ref": "#/components/schemas/%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9E%8B"
+                          }
+                        },
+                        "required": [
+                          "user",
+                          "id",
+                          "content",
+                          "rating",
+                          "createdTime"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "list",
+                    "total"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "添加评论",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "评论"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "title": "评论内容"
+                  },
+                  "rating": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "content",
+                  "rating"
+                ]
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/%E8%AF%84%E8%AE%BA%E4%BF%A1%E6%81%AF"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "书籍信息": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "书籍id"
+          },
+          "url": {
+            "type": "string",
+            "title": "书籍地址"
+          },
+          "name": {
+            "type": "string",
+            "title": "书籍名"
+          },
+          "description": {
+            "type": "string",
+            "title": "书籍描述"
+          },
+          "cover": {
+            "type": "string",
+            "title": "书籍封面"
+          },
+          "author": {
+            "type": "string",
+            "title": "作者"
+          },
+          "publisher": {
+            "type": "string",
+            "title": "出版社"
+          },
+          "publisherDate": {
+            "type": "string",
+            "title": "出版日期"
+          },
+          "hot": {
+            "type": "number",
+            "title": "热度",
+            "description": "阅读的点击次数"
+          },
+          "recommend": {
+            "type": "integer",
+            "title": "推荐",
+            "description": "评论的个数"
+          },
+          "createdTime": {
+            "type": "string",
+            "title": "创建时间"
+          },
+          "updatedTime": {
+            "type": "string",
+            "title": "更新时间"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "cover",
+          "hot",
+          "recommend",
+          "author",
+          "publisher",
+          "publisherDate",
+          "createdTime",
+          "updatedTime",
+          "url"
+        ]
+      },
+      "用户模型": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "用户 id"
+          },
+          "name": {
+            "type": "string",
+            "title": "用户名"
+          },
+          "cover": {
+            "type": "string",
+            "title": "用户头像"
+          },
+          "mobile": {
+            "type": "string",
+            "title": "手机号码"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "cover",
+          "mobile"
+        ]
+      },
+      "评论信息": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "评论id"
+          },
+          "content": {
+            "type": "string",
+            "title": "评论内容"
+          },
+          "rating": {
+            "type": "integer",
+            "title": "评论评分"
+          },
+          "createdTime": {
+            "type": "string",
+            "title": "创建时间"
+          }
+        },
+        "required": [
+          "id",
+          "content",
+          "rating",
+          "createdTime"
+        ]
+      }
+    },
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}
