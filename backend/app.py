@@ -1,16 +1,23 @@
 import os
 import uuid
 import json
-import os
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, current_app, send_from_directory
 from flask_cors import CORS
 import mysql.connector
 import jwt
+import logging
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from db_init import init_database
 from dotenv import load_dotenv
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # 加载环境变量
 load_dotenv()
@@ -45,7 +52,7 @@ def get_db_connection():
         )
         return connection
     except mysql.connector.Error as error:
-        print(f"数据库连接失败: {error}")
+        logger.error(f"数据库连接失败: {error}")
         return None
 
 # 检查文件扩展名是否允许
@@ -146,7 +153,7 @@ def register():
             'token': token
         })
     except mysql.connector.Error as error:
-        print(f"注册失败: {error}")
+        logger.error(f"注册失败: {error}")
         return jsonify({'message': '注册失败，请重试'}), 500
     finally:
         cursor.close()
@@ -193,7 +200,7 @@ def login():
             'profile': user_profile
         })
     except mysql.connector.Error as error:
-        print(f"登录失败: {error}")
+        logger.error(f"登录失败: {error}")
         return jsonify({'message': '登录失败，请重试'}), 500
     finally:
         cursor.close()
@@ -219,7 +226,7 @@ def get_user():
         
         return jsonify(user)
     except mysql.connector.Error as error:
-        print(f"获取用户信息失败: {error}")
+        logger.error(f"获取用户信息失败: {error}")
         return jsonify({'message': '获取用户信息失败'}), 500
     finally:
         cursor.close()
@@ -307,7 +314,7 @@ def get_books():
             'total': total
         })
     except mysql.connector.Error as error:
-        print(f"获取书籍列表失败: {error}")
+        logger.error(f"获取书籍列表失败: {error}")
         return jsonify({'message': '获取书籍列表失败'}), 500
     finally:
         cursor.close()
@@ -322,7 +329,9 @@ def create_book():
     author = request.form.get('author')
     description = request.form.get('description')
     url = request.form.get('url')
-    
+
+    logger.debug(request.form)
+
     # 验证必要字段
     if not name or not author or not description:
         return jsonify({'message': '缺少必要的参数'}), 400
@@ -369,9 +378,9 @@ def create_book():
         )
         connection.commit()
         
-        return jsonify({}), 200
+        return jsonify({ 'message': '上传成功', 'id': book_id }), 200
     except mysql.connector.Error as error:
-        print(f"上传书籍失败: {error}")
+        logger.error(f"上传书籍失败: {error}")
         return jsonify({'message': '上传书籍失败'}), 500
     finally:
         cursor.close()
@@ -448,7 +457,7 @@ def get_book_detail(id):
         
         return jsonify(book_detail)
     except mysql.connector.Error as error:
-        print(f"获取书籍详情失败: {error}")
+        logger.error(f"获取书籍详情失败: {error}")
         return jsonify({'message': '获取书籍详情失败'}), 500
     finally:
         cursor.close()
@@ -481,7 +490,7 @@ def record_read(id):
         # 获取更新后的书籍详情
         return get_book_detail(id)
     except mysql.connector.Error as error:
-        print(f"记录阅读次数失败: {error}")
+        logger.error(f"记录阅读次数失败: {error}")
         return jsonify({'message': '记录阅读次数失败'}), 500
     finally:
         cursor.close()
@@ -552,7 +561,7 @@ def get_comments(book_id):
             'total': total
         })
     except mysql.connector.Error as error:
-        print(f"获取评论列表失败: {error}")
+        logger.error(f"获取评论列表失败: {error}")
         return jsonify({'message': '获取评论列表失败'}), 500
     finally:
         cursor.close()
@@ -611,7 +620,7 @@ def add_comment(book_id):
         
         return jsonify(comment)
     except mysql.connector.Error as error:
-        print(f"添加评论失败: {error}")
+        logger.error(f"添加评论失败: {error}")
         return jsonify({'message': '添加评论失败'}), 500
     finally:
         cursor.close()
